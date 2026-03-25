@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - StudentEduApp</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+        /* Navbar Stili */
+        .navbar {
+            background-color: #ffffff !important;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05) !important;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            color: #4e73df !important;
+        }
+        /* Kart ve İçerik Yapısı */
+        .main-container {
+            min-height: calc(100vh - 160px);
+            padding-top: 2rem;
+        }
+        .nav-link {
+            font-weight: 500;
+            transition: color 0.3s ease;
+            margin: 0 5px;
+        }
+        .nav-link:hover {
+            color: #4e73df !important;
+        }
+        .active-link {
+            color: #4e73df !important;
+            border-bottom: 2px solid #4e73df;
+        }
+        /* Footer */
+        footer {
+            background: white;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+    </style>
+    
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/StudentEduApp.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="fas fa-graduation-cap me-2"></i>StudentEduApp
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">
+                                <i class="fas fa-home me-1"></i> Anasayfa
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Ogrenci" asp-action="List">
+                                <i class="fas fa-users me-1"></i> Öğrenciler
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="EgitimModul" asp-action="Index">
+                                <i class="fas fa-book me-1"></i> Eğitimler
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="EgitimKayit" asp-action="Index">
+                                <i class="fas fa-clipboard-list me-1"></i> Kayıtlar
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Performans" asp-action="List">
+                                <i class="fas fa-clipboard-list me-1"></i>Performanslar
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="d-flex ms-lg-3">
+                        <a class="btn btn-outline-primary btn-sm rounded-pill px-4" asp-controller="Home" asp-action="Privacy">Gizlilik</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container main-container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top text-muted">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2026 - <span class="fw-bold">StudentEduApp</span> - Geleceği Kodla</p>
+            <small>Tüm hakları saklıdır.</small>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
