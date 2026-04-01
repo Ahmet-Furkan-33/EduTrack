@@ -1,0 +1,41 @@
+@model EgitimModul
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-danger text-white py-3">
+                    <h5 class="card-title mb-0">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i> Silme Onayı
+                    </h5>
+                </div>
+                
+                <div class="card-body p-4">
+                    <p class="fs-5 text-center">
+                        <strong class="text-danger">@Model.ModulAdi</strong> 
+                        <br>İsimli eğitimi silmek istediğinizden emin misiniz?
+                    </p>
+                    
+                    <p class="text-muted text-center small">
+                        Bu işlem geri alınamaz ve modüle ait tüm veriler kalıcı olarak silinir.
+                    </p>
+
+                    <hr>
+
+                    <form asp-action="Delete" method="post">
+                        <input type="hidden" name="id" value="@Model.EgitimModulId">
+                        
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-4">
+                            <a asp-action="Index" class="btn btn-outline-secondary px-4 py-2">
+                                <i class="bi bi-x-lg me-1"></i> Hayır
+                            </a>
+                            <button type="submit" class="btn btn-danger px-5 py-2 fw-bold shadow-sm">
+                                <i class="bi bi-trash3 me-1"></i> Evet
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
